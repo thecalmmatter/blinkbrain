@@ -67,7 +67,7 @@ In a blink, it gets the brain. BlinkBrain turns videos into smart conversations.
 	•	Details: The uploaded file is securely deleted after the necessary processing is completed, ensuring the app doesn’t store unnecessary files.
 	•	Application: Keeps the app environment clean and reduces unnecessary data storage.
 
-Relevant Literature for Models Used
+References
 
 	1.	SentenceTransformer:
 	•	This is a transformer-based model that allows for efficient sentence-level embeddings. It leverages the power of models like BERT, RoBERTa, and DistilBERT for creating dense vector representations of sentences.
