@@ -163,6 +163,6 @@ st.markdown(
     ---
     ### ℹ️ About This App
     This app uses the [vid2cleantxt](https://github.com/pszemraj/vid2cleantxt) package for transcription and Ollama's Llama model for fine-tuning and interactive Q&A with ChromaDB.
-    Developed by [Your Name](https://github.com/yourprofile).
+    Developed by [Prasoon Majumdar](https://github.com/thecalmmatter).
     """
 )
