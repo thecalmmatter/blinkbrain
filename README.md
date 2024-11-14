@@ -1,5 +1,9 @@
 # **Blink Brain - Enhanced Video Transcription & Interactive Q&A App with Llama** 🎬
 
+
+![blinkbrain](https://github.com/user-attachments/assets/e1d05a2d-cf67-4216-9c1f-fe6ea3d67435)
+
+
 This project is an application that allows users to upload a video, transcribe it, fine-tune the transcription using Llama, and interact with the transcription via a Q&A feature.
 
 ---
