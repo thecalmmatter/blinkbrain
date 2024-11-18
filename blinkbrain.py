@@ -7,6 +7,7 @@ from sentence_transformers import SentenceTransformer
 from pathlib import Path
 import os
 import uuid
+import shutil
 
 # Initialize embedding model
 @st.cache_resource
@@ -30,7 +31,7 @@ collection_name = "transcription_embeddings"
 collection = get_or_create_collection(chroma_client, collection_name)
 
 # Title and description
-st.title("🎬 Enhanced Video Transcription & Interactive Q&A App with Llama")
+st.title("🎬 BlinkBrain")
 st.write("Upload a video, transcribe it, fine-tune the text using Llama, and interact with the transcription through Q&A.")
 
 
@@ -68,6 +69,8 @@ def get_relevant_context_from_chromadb(query, top_k=3):
 # Video file uploader
 st.subheader("📁 Upload Your Video File")
 video_file = st.file_uploader("Upload a video file", type=["mp4", "mov", "avi"])
+transcription_folder = Path("./v2clntxt_transcriptions")
+metadata_folder = Path("./v2clntxt_transc_metadata")
 
 # Only process if the video file is uploaded
 if video_file is not None:
@@ -149,13 +152,48 @@ if video_file is not None:
         file_name="fine_tuned_transcription.txt",
         mime="text/plain"
     )
+else:
+    st.info("Please upload a video file to start the transcription process.")
+
+
+st.markdown(
+    """
+    ---
+    ### ℹ️ Space Management
+    The transcription and metadata folders store temporary files to enable faster responses. 
+    You can delete these files once you no longer need to ask questions.
+    """
+)
+
+# Option to delete folders after the user is done
+if st.button("I'm Done Asking Questions. Free Up Space!"):
 
     # Remove uploaded video file
     if video_path.exists():
         video_path.unlink()
         st.success("🗑️ Uploaded video file has been deleted.")
-else:
-    st.info("Please upload a video file to start the transcription process.")
+
+    # Delete transcription folder
+    if transcription_folder.exists():
+        try:
+            shutil.rmtree(transcription_folder)
+            st.success("🗑️ Transcription folder has been deleted.")
+        except Exception as e:
+            st.error(f"Error deleting transcription folder: {e}")
+    else:
+        st.info("Transcription folder not found! It may have already been deleted.")
+
+    # Delete metadata folder
+    if metadata_folder.exists():
+        try:
+            shutil.rmtree(metadata_folder)
+            st.success("🗑️ Metadata folder has been deleted.")
+        except Exception as e:
+            st.error(f"Error deleting metadata folder: {e}")
+    else:
+        st.info("Metadata folder not found! It may have already been deleted.")
+
+
 
 # Footer
 st.markdown(

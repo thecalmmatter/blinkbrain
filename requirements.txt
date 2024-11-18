@@ -1,0 +1,6 @@
+streamlit==1.26.0
+sentence-transformers==2.2.2
+chromadb==0.3.25
+torch==2.0.1
+vid2cleantxt==0.1.0  # Replace with the actual version you are using
+ollama==0.1.0  # Replace with the actual version or custom implementation
