@@ -114,7 +114,7 @@ This app is designed to assist users in extracting and improving video transcrip
 ### **5. Ask Questions**
    The user can then ask questions about the transcription. The app retrieves relevant context from **ChromaDB** and uses **Llama** to generate an answer based on the transcriptions.
 
-### **6. Evaluation metrics**
+### **6. Evaluation metrics(TODO)**
 
 Long-form question answering (LFQA) enables answering a wide range of questions, but its flexibility poses enormous challenges for evaluation. We perform the first targeted study of the evaluation of long-form answers, covering both human and automatic evaluation practices. We hire domain experts in seven areas to provide preference judgments over pairs of answers, along with free-form justifications for their choices. We present a careful analysis of experts' evaluation, which focuses on new aspects such as the comprehensiveness of the answer. Next, we examine automatic text generation metrics, finding that no existing metrics are predictive of human preference judgments. However, some metrics correlate with fine-grained aspects of answers (e.g., coherence). We encourage future work to move away from a single "overall score" of the answer and adopt a multi-faceted evaluation, targeting aspects such as factuality and completeness. We publicly release all of our annotations and code to spur future work into LFQA evaluation.
 
